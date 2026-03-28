@@ -1,7 +1,9 @@
 package main
 
-import "go-101/ch1"
+import (
+	"go-101/ch1"
+)
 
 func main() {
-	ch1.Fetch1()
+	ch1.SimpleRoutine()
 }
