@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	ch1.SimpleRoutine()
+	ch1.Server3()
 }
