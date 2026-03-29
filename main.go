@@ -1,8 +1,7 @@
 package main
 
-import "go-101/ch2"
+import "go-101/sample"
 
 func main() {
-	ch2.GoodNames()
-	ch2.BadNames()
+	sample.SimpleBE()
 }
