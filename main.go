@@ -1,9 +1,9 @@
 package main
 
 import (
-	"go-101/ch1"
+	"go-101/ch2"
 )
 
 func main() {
-	ch1.Server3()
+	ch2.ConstantsValues()
 }
