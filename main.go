@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	ch2.ShowZeroValue()
+	ch2.HowPointerWork()
 }
