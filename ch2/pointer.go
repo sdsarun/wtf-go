@@ -50,15 +50,42 @@ func createPointer() {
 // swap exchanges the addresses stored in two pointer variables.
 // It receives **int so it can mutate the caller's pointer variables.
 //
-//	Inside swap (before):       Inside swap (after):
-//	┌───┐   ┌───┐               ┌───┐   ┌───┐
-//	│ a │──▶│pA │               │ a │──▶│pB │  (pA now holds 0x30)
-//	└───┘   └───┘               └───┘   └───┘
-//	┌───┐   ┌───┐               ┌───┐   ┌───┐
-//	│ b │──▶│pB │               │ b │──▶│pA │  (pB now holds 0x20)
-//	└───┘   └───┘               └───┘   └───┘
+//	Inside swap (before):
+//	┌───┐   ┌──────────┐         ┌──────────┐
+//	│ a │──▶│ pA = 0x20│────────▶│  10      │ 0x20
+//	└───┘   └──────────┘         └──────────┘
+//	┌───┐   ┌──────────┐         ┌──────────┐
+//	│ b │──▶│ pB = 0x30│────────▶│  20      │ 0x30
+//	└───┘   └──────────┘         └──────────┘
+//
+//	Inside swap (after):
+//	a and b still point to the same pA/pB locations — only the stored address changes.
+//	┌───┐   ┌──────────┐         ┌──────────┐
+//	│ a │──▶│ pA = 0x30│────────▶│  20      │ 0x30
+//	└───┘   └──────────┘         └──────────┘
+//	┌───┐   ┌──────────┐         ┌──────────┐
+//	│ b │──▶│ pB = 0x20│────────▶│  10      │ 0x20
+//	└───┘   └──────────┘         └──────────┘
 func swap(a **int, b **int) {
-	t := *a  // t = address pA was holding (0x20)
-	*a = *b  // pA now holds address pB was holding (0x30)
-	*b = t   // pB now holds the saved address (0x20)
+	// Initial state:
+	//  a ──▶ [ pA = 0x20 ] ──▶ [ 10 ]
+	//  b ──▶ [ pB = 0x30 ] ──▶ [ 20 ]
+
+	t := *a
+	// t now holds the address pA was storing (0x20)
+	//  t        = 0x20
+	//  a ──▶ [ pA = 0x20 ] ──▶ [ 10 ]
+	//  b ──▶ [ pB = 0x30 ] ──▶ [ 20 ]
+
+	*a = *b
+	// pA now stores the address pB was storing (0x30)
+	//  t        = 0x20
+	//  a ──▶ [ pA = 0x30 ] ──▶ [ 20 ]
+	//  b ──▶ [ pB = 0x30 ] ──▶ [ 20 ]
+
+	*b = t
+	// pB now stores the saved address (0x20)
+	//  t        = 0x20
+	//  a ──▶ [ pA = 0x30 ] ──▶ [ 20 ]
+	//  b ──▶ [ pB = 0x20 ] ──▶ [ 10 ]
 }
