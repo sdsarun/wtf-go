@@ -1,6 +1,8 @@
 package ch2
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func FunctionScope() {
 	// visible all inside FunctionScope
