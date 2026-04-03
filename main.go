@@ -1,7 +1,9 @@
 package main
 
-import "go-101/sample"
+import (
+	"go-101/ch2"
+)
 
 func main() {
-	sample.SimpleBE()
+	ch2.ShowZeroValue()
 }
