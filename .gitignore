@@ -1,0 +1,43 @@
+# --- air (live reload) -------------------------------------------------------
+# air's default tmp_dir: build output + build-errors.log. Keep .air.toml tracked.
+/tmp/
+tmp/
+*_air_bin
+build-errors.log
+
+# --- build output --------------------------------------------------------------
+# `go build -o bin/...` per docs/README.md's toolchain cheatsheet, and project
+# 28's static-site-generator default output dir.
+bin/
+out/
+
+# --- go tooling ------------------------------------------------------------------
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# go.work is a local workspace pointer (added at project 27) — keep it per-machine.
+go.work
+go.work.sum
+
+# --- test / profiling artifacts ---------------------------------------------------
+# from every project's Makefile `clean` target.
+cover.out
+coverage.out
+*.prof
+*.pprof
+
+# --- env / secrets -----------------------------------------------------------------
+.env
+.env.*
+
+# --- editor / OS -------------------------------------------------------------------
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
