@@ -19,14 +19,8 @@ A personal Go-learning curriculum, worked through project by project.
 
 ## Git commits
 
-**Every commit, and every pull request description, created in this repository
-must end with a `Co-Authored-By: Claude` trailer** — always, without being
-asked each time:
-
-```
-Co-Authored-By: Claude <noreply@anthropic.com>
-```
-
-(Use the specific model name in place of `Claude` if the harness's own
-per-session instructions give one, e.g. `Claude Sonnet 5 <noreply@anthropic.com>`
-— but the trailer itself is never optional.)
+**No AI/Claude co-author attribution** — commits and PR descriptions in this
+repo must not carry a `Co-Authored-By: Claude` trailer or a "Generated with
+Claude Code" line. This is enforced via `.claude/settings.local.json`
+(`attribution.commit` / `attribution.pr` both set to `""`), not by asking each
+time.
